@@ -5,4 +5,4 @@ to learn kubernetes go https://kubernetes.io/docs/setup/[here].
 
 == Topics
 
- * https://github.com/mramotowski/mkp/pods[Pods]
+ * https://github.com/mramotowski/mkp/tree/master/pods[Pods]
