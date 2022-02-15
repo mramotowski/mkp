@@ -1,0 +1,36 @@
+= Multi container pod
+
+Create multi container pod using https://github.com/mramotowski/pln_exchange_rate[pln_exchange_rate]
+app and https://hub.docker.com/r/curlimages/curl[curl] docker image.
+
+Create pln-exchange-rate pod:
+----
+kubectl apply -f pln_exchange_rate.yaml
+----
+
+Check pln-exchange-rate pod works:
+----
+PODIP=$(kubectl get -o jsonpath="{.status.podIP}" pod pln-exchange-rate)
+curl -i $PODIP:5000/prevday/exchangerate/usd/2022-01-10
+----
+
+Create ConfigMap:
+----
+kubectl create configmap pln-exchange-rate-ip --from-literal=PODIP=$PODIP
+----
+
+Create curl pod:
+----
+kubectl apply -f curl.yaml
+----
+
+Check if curl pod works:
+----
+kubectl logs curl
+----
+
+Cleanup:
+----
+kubectl delete -f curl.yaml
+kubectl delete -f pln_exchange_rate.yaml
+----

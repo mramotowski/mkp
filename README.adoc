@@ -1,0 +1,8 @@
+= MKP - my k8s playground
+
+This repository contains my k8s exercises. If by any chance you are reading it
+to learn kubernetes go https://kubernetes.io/docs/setup/[here].
+
+== Topics
+
+ * https://github.com/mramotowski/mkp/pods[Pods]
