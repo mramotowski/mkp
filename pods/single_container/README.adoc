@@ -5,22 +5,22 @@ Pod.
 
 Create Pod spec:
 ----
-kubectl run pln-exchange-rate --image=mramotow/pln_exchange_rate --port 5000 \
+$ kubectl run pln-exchange-rate --image=mramotow/pln_exchange_rate --port 5000 \
 	--dry-run=client -o yaml > pln-exchange-rate.yaml
 ----
 
 Create Pod:
 ----
-kubectl apply -f pln-exchange-rate.yaml
+$ kubectl apply -f pln-exchange-rate.yaml
 ----
 
 Check if app works:
 ----
-PODIP=$(kubectl get -o jsonpath="{.status.podIP}" pod pln-exchange-rate)
-curl -i $PODIP:5000/prevday/exchangerate/usd/2022-01-10
+$ PODIP=$(kubectl get -o jsonpath="{.status.podIP}" pod pln-exchange-rate)
+$ curl -i $PODIP:5000/prevday/exchangerate/usd/2022-01-10
 ----
 
 Cleanup:
 ----
-kubectl delete -f pln-exchange-rate.yaml
+$ kubectl delete -f pln-exchange-rate.yaml
 ----

@@ -5,16 +5,16 @@ app and https://hub.docker.com/r/curlimages/curl[curl] docker image.
 
 Create Pod:
 ----
-kubectl apply -f multi_container_pod.yaml
+$ kubectl apply -f multi_container_pod.yaml
 ----
 
 Check if app works:
 ----
-kubectl logs pln-exchange-rate pln-exchange-rate
-kubectl logs pln-exchange-rate curl
+$ kubectl logs pln-exchange-rate pln-exchange-rate
+$ kubectl logs pln-exchange-rate curl
 ----
 
 Cleanup:
 ----
-kubectl delete -f multi_container_pod.yaml
+$ kubectl delete -f multi_container_pod.yaml
 ----
